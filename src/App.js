@@ -28,7 +28,11 @@ function App() {
           {todos.map((todo, i) => (
             <div className="todo">
               <div className="checkbox" />
-              <input type="text" value={todo.content} />
+              <input 
+              type="text" 
+              value={todo.content}
+              onKeyDown={e => handleKeyDown(e, i)} 
+              />
             </div>
           ))}
         </ul>
