@@ -18,6 +18,24 @@ function App() {
     }
   ]);
 
+  function handleKeyDown(e, i) {
+    if (e.key === 'Enter') {
+      createTodoAtIndex(e, i);
+    }
+  }
+
+  function createTodoAtIndex(e, i) {
+    const newTodos = [...todos];
+    newTodos.splice(i + 1, 0, {
+      content: '',
+      isComlpleted: false,
+    });
+    setTodos(newTodos);
+    setTimeout(() => {
+      document.forms[0].elements[i + 1].focus();
+    }, 0);
+  }
+
   return (
     <div className="app">
       <div className="header">
